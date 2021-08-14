@@ -161,6 +161,7 @@ class LODMesh {
 	public bool hasMesh;
 	int lod;
 	public event System.Action updateCallback;
+	public static float maxHeight = 5f;
 
 	public LODMesh(int lod) {
 		this.lod = lod;
@@ -174,6 +175,8 @@ class LODMesh {
 	}
 
 	public void RequestMesh(HeightMap heightMap, MeshSettings meshSettings) {
+		if(heightMap.maxValue>maxHeight){maxHeight=heightMap.maxValue;}
+		//Debug.Log(maxHeight);
 		hasRequestedMesh = true;
 		ThreadedDataRequester.RequestData (() => MeshGenerator.GenerateTerrainMesh (heightMap.values, meshSettings, lod), OnMeshDataReceived);
 	}

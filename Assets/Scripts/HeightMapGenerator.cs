@@ -11,6 +11,8 @@ public static class HeightMapGenerator {
 
 		float minValue = float.MaxValue;
 		float maxValue = float.MinValue;
+		int maxValueX = int.MinValue;
+		int maxValueZ = int.MinValue;
 
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
@@ -18,6 +20,8 @@ public static class HeightMapGenerator {
 
 				if (values [i, j] > maxValue) {
 					maxValue = values [i, j];
+					maxValueX = i;
+					maxValueZ = j;
 				}
 				if (values [i, j] < minValue) {
 					minValue = values [i, j];
@@ -25,7 +29,7 @@ public static class HeightMapGenerator {
 			}
 		}
 
-		return new HeightMap (values, minValue, maxValue);
+		return new HeightMap (values, minValue, maxValue,maxValueX,maxValueZ);
 	}
 
 }
@@ -34,12 +38,17 @@ public struct HeightMap {
 	public readonly float[,] values;
 	public readonly float minValue;
 	public readonly float maxValue;
+	public readonly int maxValueX;
+	public readonly int maxValueZ;
+	//public HeightMap(){}
 
-	public HeightMap (float[,] values, float minValue, float maxValue)
+	public HeightMap (float[,] values, float minValue, float maxValue,int maxValueX, int maxValueZ)
 	{
 		this.values = values;
 		this.minValue = minValue;
 		this.maxValue = maxValue;
+		this.maxValueX = maxValueX;
+		this.maxValueZ = maxValueZ;
 	}
 }
 
