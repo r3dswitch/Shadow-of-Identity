@@ -16,11 +16,11 @@ MonoBehaviour:
   noiseSettings:
     normalizeMode: 1
     scale: 50
-    octaves: 6
-    persistance: 0.498
+    octaves: 8
+    persistance: 0.5
     lacunarity: 2
     seed: 24
-    offset: {x: 0, y: 0}
+    offset: {x: -57.56, y: 0}
   useFalloff: 0
   heightMultiplier: 25
   heightCurve:

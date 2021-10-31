@@ -16,9 +16,7 @@ public class ObjectPlacement : MonoBehaviour
     IEnumerator delayedExec(){
         yield return new WaitForSeconds(2);
         HeightMap heightMap = HeightMapGenerator.GenerateHeightMap(meshSettings.numVertsPerLine, meshSettings.numVertsPerLine,heightMapSettings, Vector2.zero);
-        float x = heightMap.values[heightMap.maxValueX,heightMap.maxValueZ];
-        float z = heightMap.values[heightMap.maxValueX,heightMap.maxValueZ];
-        //Debug.Log(LODMesh.maxHeight);
-        obj.transform.position = new Vector3(x,LODMesh.maxHeight,z);
+        //currently hardcoded
+        obj.transform.position = new Vector3(-58.5f,LODMesh.maxHeight,40.3f);
     }
 }
